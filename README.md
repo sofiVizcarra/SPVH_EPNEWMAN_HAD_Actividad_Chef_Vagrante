@@ -9,17 +9,94 @@ El Objetivo de este proyecto es desplegar Wondpress usando Vagrant y Chef.
 ## Pre-requisitos
 
 - Necesitas tener instalado Git
-- Necesitas tener instalado Vagrant 2.3.7 o superior
-- Necesitas tener instalado VirtualBox 7.0 o superior
-- Ruby 2.5 o superior
 
-Instala el plugin `vagrant-env` para poder cargar variables ed ambiente desde el archivo `.env`
+Para sistemas Unix (Linux y macOS):
+
+-- En distribuciones basadas en Debian/Ubuntu
+```bash
+sudo apt-get update
+sudo apt-get install git
+```
+
+-- En distribuciones basadas en Red Hat/Fedora
+```bash
+sudo yum install git
+```
+
+Para sistemas Windows
+```bash
+Puedes descargar e instalar Git desde https://git-scm.com
+Durante la instalación, asegúrate de seleccionar la opción "Git from the command line and also from 3rd-party software".
+```
+
+Para sistemas basados en Homebrew (macOS):
+```bash
+brew install git
+```
+
+
+- Necesitas tener instalado Vagrant 2.3.7 o superior
+
+Para sistemas Unix (Linux y macOS):
+
+-- Instalar Vagrant en Ubuntu/Debian
+```bash
+sudo apt-get update
+sudo apt-get install vagrant
+```
+
+-- En distribuciones basadas en Red Hat/Fedora
+```bash
+sudo dnf install vagrant
+```
+
+Para sistemas Windows
+```bash
+Descarga el instalador de Vagrant desde el sitio web oficial de [Vagrant](https://www.vagrantup.com).
+Ejecuta el instalador y sigue las instrucciones en pantalla.
+```
+
+Para sistemas basados en Homebrew (macOS):
+```bash
+brew install vagrant
+```
+
+- Necesitas tener instalado VirtualBox 7.0 o superior (https://www.virtualbox.org)
+
+- Ruby 2.5 o superior 
+
+Para sistemas Unix (Linux y macOS):
+
+-- Instalar Ruby en Ubuntu/Debian
+```bash
+sudo apt-get update
+sudo apt-get install ruby-full
+```
+
+-- En distribuciones basadas en Red Hat/Fedora
+```bash
+sudo dnf install ruby
+```
+
+Para sistemas Windows
+```bash
+Descarga el instalador de RubyInstaller desde el sitio web oficial de[RubyInstaller](https://rubyinstaller.org).
+Ejecuta el instalador y sigue las instrucciones en pantalla.
+```
+
+Para sistemas basados en Homebrew (macOS):
+```bash
+brew install ruby
+```
+
+
+- Instala el plugin `vagrant-env` para poder cargar variables ed ambiente desde el archivo `.env`
 
 ```bash
  vagrant plugin install vagrant-env
 ```
 
-También debes instalar la gema `serverspec` para poder ejecutar las pruebas de integración e infraestructura:
+- También debes instalar la gema `serverspec` para poder ejecutar las pruebas de integración e infraestructura:
 
 ```bash
  gem install serverspec
