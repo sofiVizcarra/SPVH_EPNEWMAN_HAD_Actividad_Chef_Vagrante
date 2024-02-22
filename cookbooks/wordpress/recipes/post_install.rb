@@ -7,7 +7,6 @@ remote_file '/tmp/wp' do
   action :create
 end
 
-
 # Mover WP CLI a /bin
 execute 'Move WP CLI' do
   command 'mv /tmp/wp /bin/wp'
