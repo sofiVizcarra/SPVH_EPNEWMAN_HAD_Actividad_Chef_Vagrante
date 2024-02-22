@@ -1,14 +1,10 @@
 # Despliegue de Wordpress usando Vagrant y Chef
 
-- Master ![Build Status on Master Branch](https://github.com/cppmx/wordpress_chef/actions/workflows/ci.yaml/badge.svg)
+El Objetivo de este proyecto es desplegar Wondpress usando Vagrant y Chef.
 
-Este proyecto es para una tarea de la Maestría en Desarrollo y Operaciones de EPNEWMAN.
+## IP's
 
-El Objetivo es desplegar Wondpress usando Vagrant y Chef.
-
-## Supuestos
-
-- Se espera que la red de las VMs sea 192.168.56.0/24. Si VirtualBox tiene otro rango de red entonces hay que ajustar el archivio `.env` con los valores adecuados.
+- Se espera que la red de las VMs sea 192.168.56.0/24. Si VirtualBox tiene otro rango de red entonces se debe ajustar el archivio `.env` con los valores adecuados.
 
 ## Pre-requisitos
 
@@ -37,34 +33,23 @@ El proyecto se compone de tres servicios, cada uno deployado en una VM individua
 - [wordpress](cookbooks/wordpress/README.md): En esta VM se instala el servidor web Apache y la aplicación Wordpress es instalada para ser servida por el servidor web.
 - [proxy](cookbooks/proxy/README.md): Em esta VM se instala un proxy Nginx el cual será el punto de entrada a la aplicación.
 
-En el siguiente diagrama se pueden ver cómo se relacionan las VMs y los puertos de comunicación que esa cada una de ellas:
 
-```mermaid
-graph LR;
-    A("Usuario") --> |80| B("proxy
-    192.168.56.2") --> |8080| C("wordpress
-  192.168.56.10") ---> |3306| D[("database
-  192.168.56.20")]
-```
+## Configuración previa
 
-## Configuraciones
+En el archivo `.env` se definen valores como las IPs de las VMs, el usuario y password de la BD que se usará para configurar Wordpress.
 
-En el archivo `.env` se pueden definir algunos valores como las IPs de las máquinas virtuales y el usuario y el password de la BD que se usará para configurar Wordpress.
-
-Antes de levantar Vagrant se puede definir la caja que se usará. Mira el siguiente diagrama:
+Antes de levantar Vagrant se define la caja que se usará. Mira el siguiente diagrama:
 
 ```mermaid
 graph TB;
     A[Inicio] --> B{BOX_NAME?}
-    B -->|No| C["Deploy ubuntu/focal64"]
-    B -->|Si| D["Deploy generic/centos8"]
+    B -->|Si| C["Deploy ubuntu/focal64"]
+    B -->|No| D["Deploy generic/centos8"]
     C --> E[Fin]
     D --> E[Fin]
 ```
 
-Lee la sección [Uso](#uso) para ver ejemplos de esto.
-
-## Uso
+## Iniciar las VM
 
 Para levantar las dos máquinas virtuales con Ubuntu 20.04 ejecuta el comando:
 
@@ -105,7 +90,6 @@ Una vez que se hayan levantado todas las VMs podrás acceder a Wordpress en la p
 Para ejecutar las pruebas unitarias usa el script `tests.sh` alojado en la carpeta UniTest si estás en Linux o Mac.
 
 ```bash
- #./tests.sh
  UnitTest/tests.sh
  Seleccione una opción:
  1. UnitTest en Máquina Virtual (VM)
@@ -143,7 +127,7 @@ Para ejecutar todas las pruebas de integración usa el script `tests.sh` opción
  Opción: 
 ```
 
-Si deseas ejecutar una a una las pruebas de integración e infraestructura entonces pásale el nombre de la receta al script `tests.sh`:
+Si deseas ejecutar una a una las pruebas de integración e infraestructura entonces envíale el nombre de la receta al script `tests.sh`:
 
 ```bash
  # UnitTest base de datos (DB)
