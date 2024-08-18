@@ -1,5 +1,7 @@
 execute "get wordpress" do
-    command "curl -o /tmp/wordpress.zip https://wordpress.org/latest.zip"
+    #command "curl -o /tmp/wordpress.zip https://wordpress.org/latest.zip"
+    # SPVH DESCARGAMOS LA ULTIMA VERSION DE WORDPRESS EN ESPAÑOL
+    command "curl -o /tmp/wordpress.zip https://es.wordpress.org/latest-es_ES.zip"
     action :run
     not_if { ::File.exist?('/tmp/wordpress.zip') }
 end

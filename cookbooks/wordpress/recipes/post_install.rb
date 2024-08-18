@@ -19,7 +19,8 @@ file '/bin/wp' do
 end
 
 # Instalar Wordpress y configurar
+# SPVH SOLO SE CAMBIA LA DESCRIPCION
 execute 'Finish Wordpress installation' do
-  command 'sudo -u vagrant -i -- wp core install --path=/opt/wordpress/ --url=localhost --title="EPNEWMAN - Herramientas de automatización de despliegues" --admin_user=admin --admin_password="Epnewman123" --admin_email=admin@epnewman.edu.pe'
+  command 'sudo -u vagrant -i -- wp core install --path=/opt/wordpress/ --url=localhost --title="EPNEWMAN - Herramientas de automatización de despliegueS - SPVH Se logro mostrar las imagenes y pagina en español :)" --admin_user=admin --admin_password="Epnewman123" --admin_email=admin@epnewman.edu.pe'
   not_if 'wp core is-installed', environment: { 'PATH' => '/bin:/usr/bin:/usr/local/bin' }
 end
