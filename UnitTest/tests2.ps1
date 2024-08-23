@@ -59,6 +59,7 @@ function unit_tests_on_a_container {
 
 function itg_tests {
     $KITCHEN_CMD = Get-Command kitchen -ErrorAction SilentlyContinue
+
     Set-Location $args[0]
     & $KITCHEN_CMD test
 }
