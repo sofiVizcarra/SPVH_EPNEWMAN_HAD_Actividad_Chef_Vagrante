@@ -20,8 +20,9 @@ end
 
 # Instalar Wordpress y configurar
 # SPVH SOLO SE CAMBIA LA DESCRIPCION
+# SE UTILIZA VARIABLE DE ENTORNO PARA url y admin_user
 execute 'Finish Wordpress installation' do
-  command 'sudo -u vagrant -i -- wp core install --path=/opt/wordpress/ --url="#{ENV["PROXY_IP"]}" --title="EPNEWMAN - Herramientas de automatización de despliegueS - SPVH Se logro mostrar las imagenes y pagina en español :)" --admin_user=admin --admin_password="Epnewman123" --admin_email=admin@epnewman.edu.pe'
+  command 'sudo -u vagrant -i -- wp core install --path=/opt/wordpress/ --url="#{ENV["PROXY_IP"]}" --title="EPNEWMAN - Herramientas de automatización de despliegue - SPVH Se logro mostrar las imagenes y pagina en español :)" --admin_user="#{ENV["ADM_USR"]}" --admin_password="Epnewman123" --admin_email=admin@epnewman.edu.pe'
   not_if 'wp core is-installed', environment: { 'PATH' => '/bin:/usr/bin:/usr/local/bin' }
 end
 
