@@ -170,7 +170,9 @@ Para ejecutar todas las pruebas de integración usa el script `tests.sh` opción
 
 #SPVH 01/09/2024
 Tener instalado la gema de kitchen-vagrant:
+```bash
 gem install kitchen-vagrant
+```
 
 ```bash
  UnitTest/tests.sh
