@@ -60,6 +60,7 @@ brew install ruby
 # En Windows
 Descarga el instalador de RubyInstaller desde el sitio web oficial de[RubyInstaller](https://rubyinstaller.org).
 Ejecuta el instalador y sigue las instrucciones en pantalla.
+
 ```
 
 - Instala el plugin `vagrant-env` para poder cargar variables ed ambiente desde el archivo `.env`
@@ -100,19 +101,20 @@ graph TB;
 
 ## Iniciar las VM
 
-Para levantar las dos máquinas virtuales con Ubuntu 20.04 ejecuta el comando:
+#SPVH 01/09/2024
+Para levantar las tres máquinas virtuales con Ubuntu 20.04 ejecuta el comando:
 
 ```bash
  vagrant up
 ```
-
-Para levantar las dos máquinas virtuales con CentOS 8 ejecuta el comando:
+#SPVH 01/09/2024
+Para levantar las tres máquinas virtuales con CentOS 8 ejecuta el comando:
 
 ```bash
  BOX_NAME="generic/centos8" vagrant up
 ```
-
-Se van a crear dos máquinas virtuales, una llamada `wordpress` y otra llamada `database`.
+#SPVH 01/09/2024
+Se van a crear tres máquinas virtuales, una llamada `database`, otra `wordpress` y una ultima llamada `proxy`
 Si quieres mezclar las versiones puedes hacerlo del siguiente modo.
 
 ### Wordpress con Ubuntu y MySQL con CentOS:
@@ -165,6 +167,10 @@ También puedes seleccionar una de estos dos opciones desde el script para no pa
 ## Pruebas de integración e infraestructura
 
 Para ejecutar todas las pruebas de integración usa el script `tests.sh` opción 3:
+
+#SPVH 01/09/2024
+Tener instalado la gema de kitchen-vagrant:
+gem install kitchen-vagrant
 
 ```bash
  UnitTest/tests.sh
