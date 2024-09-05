@@ -133,7 +133,10 @@ Si quieres mezclar las versiones puedes hacerlo del siguiente modo.
 
 ## Wordpress
 
-Una vez que se hayan levantado todas las VMs podrás acceder a Wordpress en la página: http://192.168.56.2/
+Una vez que se hayan levantado todas las VMs podrás acceder a:
+Apache en: http://192.168.56.10/
+PHP en: pagina: http://192.168.56.10/info.php
+Blog principal de Wordpress en: http://192.168.56.2/
 
 
 ## Unit tests
